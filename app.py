@@ -23,5 +23,29 @@ def instructions():
     return render_template("instructions.html")
 
 
+@app.route('/PreTest')
+def pretest():
+    return render_template("PreTest.html")
+
+@app.route('/video1')
+def video1():
+    return render_template("video1.html")
+
+
+@app.route('/video2')
+def video2():
+    return render_template("video2.html")
+
+
+@app.route('/afterTest')
+def afterTest():
+    return render_template("afterTest.html")
+
+
+@app.route('/demog')
+def demog():
+    return render_template("demog.html")
+
+
 if __name__ == '__main__':
     app.run()
