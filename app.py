@@ -10,7 +10,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template("home.html")
 
 
 @app.route('/consent')
@@ -45,6 +45,21 @@ def afterTest():
 @app.route('/demog')
 def demog():
     return render_template("demog.html")
+
+
+@app.route('/end')
+def end():
+    return render_template("end.html")
+
+
+@app.route('/timer')
+def timer():
+    return render_template("Timer.html")
+
+
+@app.route('/stam')
+def stam():
+    return render_template("stam.html")
 
 
 if __name__ == '__main__':
