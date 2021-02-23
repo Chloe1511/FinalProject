@@ -27,6 +27,7 @@ def instructions():
 def pretest():
     return render_template("PreTest.html")
 
+
 @app.route('/video1')
 def video1():
     return render_template("video1.html")
@@ -44,7 +45,11 @@ def afterTest():
 
 @app.route('/demog')
 def demog():
-    return render_template("demogQuiz.html")
+    return render_template("demog.html")
+
+@app.route('/request')
+def request():
+    return render_template("end.html")
 
 
 @app.route('/end')

@@ -20,7 +20,8 @@
     </div>
 <h2 style="text-align: right">שאלון דמוגרפי</h2>
 
-<form>
+<form action="/request">
+
     1. באיזה מכשיר ביצעת את המבחן ?<br>
     <input type="radio" id="PC" name="device" value="" required>
     <label for="PC">מחשב נייד</label><br>
@@ -30,6 +31,7 @@
 	2. מה הגיל שלך?<br>
     <input type="text" id="age" name="age" value="" required>
     <label for="age"></label><br><br>
+
     3. לאיזה מגדר אתה משתייך? <br>
     <input type="radio" id="men" name="gender" value="" required>
     <label for="men">גבר</label><br>
@@ -37,15 +39,19 @@
     <label for="woman">אישה</label><br>
     <input type="radio" id="other" name="gender" value="" required>
     <label for="other">אחרת</label><br><br>
+
     4. מה רמת ההשכלה שלך? <br>
     <input type="text" id="level" name="level" value="" required>
     <label for="level"></label><br><br>
+
     5. כמה שעות ביום ממוצע אתה משתמש במחשב (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursPC" name="hoursPC" value="" required>
     <label for="hoursPC"></label><br><br>
+
     6. כמה שעות ביום ממוצע אתה משתמש בטלפון נייד (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursMob" name="hoursMob" value="" required>
     <label for="hoursMob"></label><br><br>
+
     7.האם אתה בחלל / מרחב סגור או פתוח?<br>
 על סולם של 1 עד 7, דרג את הסביבה שבה אתה נמצא (כאשר 1 מייצג "חלל סגור" ו-7 מייצג "מרחב פתוח")<br>
     <label for="1">1</label>
@@ -113,6 +119,7 @@
     <input type="radio" id="6" name="noisy" value="" required>&nbsp;
     <label for="7">7</label>
     <input type="radio" id="7" name="noisy" value="" required>&nbsp;<br><br>
+
 11.על סולם מ-1 עד 7, דרג את מידת החושך שסביבך (כאשר 1 מייצג "לא חשוך בכלל" ו-7 מייצג "חשוך ביותר").<br>
         <label for="1">1</label>
     <input type="radio" id="1" name="dark" value="" required>&nbsp;
@@ -128,6 +135,7 @@
     <input type="radio" id="6" name="dark" value="" required>&nbsp;
     <label for="7">7</label>
     <input type="radio" id="7" name="dark" value="" required>&nbsp;<br><br>
+
 12.על סולם מ-1 עד 7, דרג את מידת צפיפות האנשים שסביבך (כאשר 1 מייצג "לא צפוף בכלל" ו-7 מייצג "צפוף ביותר").<br>
         <label for="1">1</label>
     <input type="radio" id="1" name="dense" value="" required>&nbsp;
@@ -145,7 +153,7 @@
     <input type="radio" id="7" name="dense" value="" required>&nbsp;<br><br>
 
     <p style="text-align:center;">
-        <button type="submit" onclick="endPage()">לדף הבא</button>
+        <button type="submit" onclick="/end">לדף הבא</button>
     </p>
 
 </form>
