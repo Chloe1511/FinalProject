@@ -44,7 +44,7 @@ def afterTest():
 
 @app.route('/demog')
 def demog():
-    return render_template("demog.html")
+    return render_template("demogQuiz.html")
 
 
 @app.route('/end')
@@ -55,11 +55,6 @@ def end():
 @app.route('/timer')
 def timer():
     return render_template("Timer.html")
-
-
-@app.route('/stam')
-def stam():
-    return render_template("stam.html")
 
 
 if __name__ == '__main__':

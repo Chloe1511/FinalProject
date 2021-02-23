@@ -5,7 +5,8 @@ function redirect()
         window.location.href = '/PreTest';
     }
    else {
-          alert("Please indicate that you accept the Terms and Conditions");
+       alert("נא סמן כי אתה מסכים לתנאים");
+
         }
 }
 
