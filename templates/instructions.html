@@ -3,22 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
     <script src={{ url_for('static', filename='js/js.js') }}></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <title>Instructions</title>
     </head>
 <body>
     <div class="grid-container">
         <div class="nameUni">
-            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
+            <div class="container-fluid">
+                <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
+            </div>
         </div>
         <div class="logo">
             <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
         </div>
     </div>
-
+  <div class="container-fluid" style="text-align: right">
         <h2 style="text-align: right">הנחיות להשתתפות בניסוי</h2>
             <p><br>
             אתה עומד להתחיל בניסוי, המחולק לשלבים.<br>
@@ -33,6 +36,7 @@
                יש לך שעה להשלים את הניסוי, אך הניסוי אמור לקחת כ-45 דקות.<br>
              <p style="text-align:center;">
              </p>
+  </div>
 <p style="text-align:center;">
     <button type="button" class="btn btn-info" ><a href="/consent" >לדף הבא</a></button>
 </p>
