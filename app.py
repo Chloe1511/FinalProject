@@ -1,12 +1,13 @@
 from datetime import timedelta
-
 from flask import Flask, render_template
+from flask_restful import Resource, Api, reqparse, abort, fields, marshal_with
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
+api = Api(app)
 app.secret_key = '123'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
-
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
