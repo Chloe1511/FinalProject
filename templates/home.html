@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src={{ url_for('static', filename='js/js.js') }}></script>
     <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <title>Home</title>
     </head>
 <body>
     <div class="grid-container">
         <div class="nameUni">
+            <div class="container-fluid">
             <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
+            </div>
         </div>
         <div class="logo">
             <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
         </div>
     </div>
-
+<div class="container-fluid">
         <h2 style="text-align: right">ברוכים הבאים.</h2>
 הכנס בבקשה את קוד הכניסה שלך<br>
     <input type="text" id="code" name="code" value="" required>
     <!--<label for="code"></label><br><br>-->
+</div>
 <p style="text-align:center;">
     <button type="button" class="btn btn-info" ><a href="/instructions">לדף הבא</a></button>
 </p>
