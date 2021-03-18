@@ -24,12 +24,13 @@
 <div class="container-fluid" style="text-align: right">
         <h2 style="text-align: right">ברוכים הבאים</h2>
     <p style="text-align: right">הכנס בבקשה את קוד הכניסה שלך</p>
-    <input type="text" id="code" name="code" value="" required>
+    <form action="/instructions" method="GET">
+        <input name="code" >
+        <input type="submit">
+    </form>
     <!--<label for="code"></label><br><br>-->
 </div>
-<p style="text-align:center;">
-    <button type="button" class="btn btn-info" ><a href="/instructions">לדף הבא</a></button>
-</p>
+
     </body>
 </html>
 
