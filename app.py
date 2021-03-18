@@ -17,6 +17,7 @@ def code():
     if 'codeid' in request.args:
         current_id = request.args['codeid']
         session['id'] = True
+        session['code']= current_id
     return render_template('instructions.html', id=current_id)
 
 
@@ -55,8 +56,8 @@ def demog():
     return render_template("demog.html")
 
 
-@app.route('/request')
-def request():
+@app.route('/requestend')
+def requestend():
     return render_template("end.html")
 
 
