@@ -2,4 +2,3 @@ Flask_RESTful==0.3.8
 Flask_SQLAlchemy==2.4.4
 Flask==1.1.2
 gunicorn
-Django~=3.1.7
