@@ -1,28 +1,28 @@
 from datetime import timedelta
-from flask import Flask, redirect, render_template
-from flask_restful import Resource, Api, reqparse, abort, fields, marshal_with
-from flask_sqlalchemy import SQLAlchemy
-from flask import request, session
 
-
+from flask import Flask, redirect, render_template, flash, blueprints, jsonify
+from flask import request,session
 app = Flask(__name__)
-api = Api(app)
 app.secret_key = '123'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
-db = SQLAlchemy(app)
 
 
 @app.route('/')
 def hello_world():
-    return render_template("home.html")
+    return render_template('home.html')
 
 
-@app.route('/instructions', methods=['GET', 'POST'])
+@app.route('/request',  methods=['GET', 'POST'])
+def code():
+    if 'codeid' in request.args:
+        current_id = request.args['codeid']
+        session['id'] = True
+    return render_template('instructions.html', id=current_id)
+
+
+@app.route('/instructions')
 def instructions():
-    id = ''
-    if 'code' in request.args:
-        id = request.args['code']
-    return render_template('instructions.html', id=id)
+    return render_template('instructions.html')
 
 
 @app.route('/consent')
