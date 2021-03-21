@@ -23,6 +23,8 @@ function mobileCheck(){
   if (check==true){
       alert("mobile");
   }
-  else {alert("PC");}
+  else {
+      alert("PC");
+  }
   return check;
 }
