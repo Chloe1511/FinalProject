@@ -3,9 +3,6 @@ from datetime import timedelta
 from flask import Flask, redirect, render_template, flash, blueprints, jsonify
 from flask import request, session
 from flask_sqlalchemy import SQLAlchemy
-from flask_sqlalchemy import  *
-from flask_migrate import Migrate, MigrateCommand, Manager
-
 
 
 app = Flask(__name__)
