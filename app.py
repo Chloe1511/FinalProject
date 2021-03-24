@@ -88,6 +88,59 @@ def demog():
 
 @app.route('/requestend')
 def requestend():
+    current_id = session['code']
+
+    if 'device' in request.args:
+        ans1 = request.args['device']
+    if 'age' in request.args:
+        ans2 = request.args['age']
+    if 'gender' in request.args:
+        ans3 = request.args['gender']
+    if 'level' in request.args:
+        ans4 = request.args['level']
+    if 'hoursPC' in request.args:
+        ans5 = request.args['hoursPC']
+    if 'hoursMob' in request.args:
+        ans6 = request.args['hoursMob']
+    if 'open' in request.args:
+        ans7 = request.args['open']
+    if 'privace' in request.args:
+        ans8 = request.args['privace']
+    if 'big' in request.args:
+        ans9 = request.args['big']
+    if 'noisy' in request.args:
+        ans10 = request.args['noisy']
+    if 'dark' in request.args:
+        ans11 = request.args['dark']
+    if 'dense' in request.args:
+        ans12 = request.args['dense']
+
+    query1 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 1, '%s')" % (current_id, ans1)
+    query2 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 2, '%s')" % (current_id, ans2)
+    query3 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 3, '%s')" % (current_id, ans3)
+    query4 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 4, '%s')" % (current_id, ans4)
+    query5 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 5, '%s')" % (current_id, ans5)
+    query6 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 6, '%s')" % (current_id, ans6)
+    query7 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 7, '%s')" % (current_id, ans7)
+    query8 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 8, '%s')" % (current_id, ans8)
+    query9 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 9, '%s')" % (current_id, ans9)
+    query10 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 10, '%s')" % (current_id, ans10)
+    query11 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 11, '%s')" % (current_id, ans11)
+    query12 = "INSERT INTO demog_quiz (id, qnumber, ans) VALUES ('%s', 12, '%s')" % (current_id, ans12)
+
+    interact_db(query1, query_type='commit')
+    interact_db(query2, query_type='commit')
+    interact_db(query3, query_type='commit')
+    interact_db(query4, query_type='commit')
+    interact_db(query5, query_type='commit')
+    interact_db(query6, query_type='commit')
+    interact_db(query7, query_type='commit')
+    interact_db(query8, query_type='commit')
+    interact_db(query9, query_type='commit')
+    interact_db(query10, query_type='commit')
+    interact_db(query11, query_type='commit')
+    interact_db(query12, query_type='commit')
+
     return render_template("end.html")
 
 
