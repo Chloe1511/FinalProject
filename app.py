@@ -1,4 +1,3 @@
-
 from flask import Flask, redirect, render_template, flash, blueprints, jsonify
 from flask import request, session
 from flask_sqlalchemy import SQLAlchemy
@@ -7,14 +6,7 @@ import psycopg2
 
 
 app = Flask(__name__)
-
 app.secret_key = '123'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
-db = SQLAlchemy(app)
-
-
 
 
 def interact_db(query, query_type: str):
@@ -23,18 +15,14 @@ def interact_db(query, query_type: str):
                                   user='qigueenywepswf',
                                   password='6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3',
                                   dbname='d5193g7acku5on')
-
     cursor = connection.cursor()
     cursor.execute(query)
-
     if query_type == 'commit':
         connection.commit()
         return_value = True
-
     if query_type == 'fetch':
         query_result = cursor.fetchall()
         return_value = query_result
-
     connection.close()
     cursor.close()
     return return_value
@@ -54,17 +42,13 @@ def code():
         session['code'] = current_id
         query = "SELECT * FROM users WHERE id ='%s'" % current_id
         query_result = interact_db(query, query_type='fetch')
-
     agent = request.headers.get('User-Agent')
     if ('iphone' or 'android' or 'blackberry') in agent.lower():
         mobile = True
     if (mobile == True):
         return render_template('instructions.html', id=current_id, user=query_result)
     else:
-        return render_template('video2.html')
-
-
-
+        return render_template('video1.html')
 
 
 @app.route('/instructions')
