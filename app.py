@@ -1,6 +1,8 @@
 
 from flask import Flask, redirect, render_template, flash, blueprints, jsonify
 from flask import request, session
+from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import *
 import psycopg2
 
 
