@@ -61,7 +61,7 @@ def code():
     if (mobile == True):
         return render_template('instructions.html', id=current_id, user=query_result)
     else:
-        return render_template('video1.html')
+        return render_template('video2.html')
 
 
 
