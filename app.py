@@ -9,18 +9,18 @@ import psycopg2
 
 app = Flask(__name__)
 
-app.secret_key = '123'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
-#app.config[
-#    'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
-#db = SQLAlchemy(app)
+app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
+db = SQLAlchemy(app)
 
 
-#class users(db.Model):
-#    ID = db.Column(db.Integer, primary_key=True)
-#    PC_Mobile = db.Column(db.Boolean)
-#    Continuous_experiment = db.Column(db.Boolean)
+class users(db.Model):
+    ID = db.Column(db.Integer, primary_key=True)
+    PC_Mobile = db.Column(db.Boolean)
+    Continuous_experiment = db.Column(db.Boolean)
 
 
 @app.route('/')
@@ -36,9 +36,9 @@ def code():
         session['id'] = True
         session['code'] = current_id
         #user = users.query.filter_by(ID=current_id).first()
-       # user = users(ID=124, PC_Mobile=True,Continuous_experiment=True)
-       # db.session.add(user)
-       # db.session.commit()
+        user = users(ID=124, PC_Mobile=True,Continuous_experiment=True)
+        db.session.add(user)
+        db.session.commit()
     return render_template('instructions.html', id=current_id)
 
 
