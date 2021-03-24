@@ -1,23 +1,13 @@
-from datetime import timedelta
 
 from flask import Flask, redirect, render_template, flash, blueprints, jsonify
 from flask import request, session
-#from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
 
 app = Flask(__name__)
 
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
-#app.config[
- #   'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
-#db = SQLAlchemy(app)
+app.secret_key = '123'
 
-##class users(db.Model):
-  ##  ID = db.Column(db.Integer, primary_key=True)
-    ##PC_Mobile = db.Column(db.Boolean)
-    ##Continuous_experiment = db.Column(db.Boolean)
 
 
 def interact_db(query, query_type: str):
@@ -27,7 +17,7 @@ def interact_db(query, query_type: str):
                                   password='6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3',
                                   dbname='d5193g7acku5on')
 
-    cursor = connection.cursor(named_tuple=True)
+    cursor = connection.cursor()
     cursor.execute(query)
 
     if query_type == 'commit':
@@ -50,7 +40,7 @@ def hello_world():
 
 @app.route('/request', methods=['GET', 'POST'])
 def code():
-
+    mobile = False
     if 'codeid' in request.args:
         current_id = request.args['codeid']
         session['id'] = True
@@ -58,12 +48,16 @@ def code():
         query = "SELECT * FROM users WHERE id ='%s'" % current_id
         query_result = interact_db(query, query_type='fetch')
 
-        #user = users.query.filter_by(ID=current_id).first()
-        #user = users(ID=124, PC_Mobile=True,Continuous_experiment=True)
-        #db.session.add(user)
-        #db.session.commit()
+    agent = request.headers.get('User-Agent')
+    if ('iphone' or 'android' or 'blackberry') in agent.lower():
+        mobile = True
+    if (mobile == True):
+        return render_template('instructions.html', id=current_id, user=query_result)
+    else:
+        return render_template('video1.html')
 
-    return render_template('instructions.html', id=current_id, user=query_result)
+
+
 
 
 @app.route('/instructions')
