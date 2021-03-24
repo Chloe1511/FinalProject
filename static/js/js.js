@@ -28,3 +28,19 @@ function mobileCheck(){
   }
   return check;
 }
+
+function myFunction2() {
+        document.getElementById("myBtn2").disabled = true;
+     setTimeout(function(){
+
+       document.getElementById("myBtn2").disabled = false;
+     }, 10000); //390000
+}
+
+function myFunction1() {
+        document.getElementById("myBtn").disabled = true;
+     setTimeout(function(){
+
+       document.getElementById("myBtn").disabled = false;
+     }, 10000); //310000
+}

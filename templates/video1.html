@@ -19,18 +19,32 @@
         </div>
         <div class="logo">
             <div class="container-fluid bgi text center">
-                <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
+                <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo" onload="myFunction1()"><br>
             </div>
         </div>
     </div>
     <h2 style="text-align: right">סרטון</h2>
-    <p style ="text-align: right" > נא צפה בסרטון זה:</p>
+    <p style ="text-align: right" >  נא צפה בסרטון זה: </p>
     <p style="text-align:center;">
         <br>
-        <iframe width="1158" height="504" src="https://www.youtube.com/embed/5-03899n678" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="1158" height="504" src="https://www.youtube.com/embed/5-03899n678?v=5-03899n678&autoplay=0&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
         <br>
-        <button type="button" class="btn btn-info" ><a href="/timer" >לדף הבא</a></button>
-    </p>
+
+                {% if ce[0] == True %}
+                    <a href="/video2"><input type="button" id="myBtn" value="לדף הבא"></a>
+                    {% else %}
+                    <a href="/timer"><input type="button" id="myBtn" value="לדף הבא"></a>
+                {% endif %}
+
+
+       <!-- {% if ce==True %}
+            <a href="/video2"><input type="button" id="myBtn" value="לדף הבא"></a>
+            {% else %}
+            <a href="/timer"><input type="button" id="myBtn" value="לדף הבא"></a>
+        {% endif %}-->
+
+
+        </p>
 
 </body>
 </html>

@@ -21,7 +21,7 @@
 
         <h2 style="text-align: right">שאלון ידע</h2>
 
-                <form>
+                <form method="GET" action='requestAfter'>
                     <h4> סיפור מקרה 1:</h4>
                     <p>
                         הדר, הבעלים של חנות הספרים "ספרים ועוד" מקבלת את כל הרווחים החשבונאיים (accounting profits) שהרוויחה החברה שלה ומשכורת של 28,000 דולר לשנה שהיא משלמת בעצמה.
@@ -30,15 +30,15 @@
                         <br>
                         בשנה שעברה הרווח החשבונאי (accounting profit) שלה היה 50 אלף דולר.
                     </p>
-                    <label for="Q1"><b>מהן העלויות הלא מפורשות (implicit costs) של הדר? </b></label>
+                    <label for="Q1" ><b>מהן העלויות הלא מפורשות (implicit costs) של הדר? </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q1" required>
                     <br>
                     <br>
-                    <label for="Q2"><b>מהי עלות הזדמנות (opportunity cost) של הדר? </b></label>
+                    <label for="Q2" ><b>מהי עלות הזדמנות (opportunity cost) של הדר? </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q2" required>
                     <br>
                     <br>
-                    <label for="Q3"><b>מהו הרווח הכלכלי (economic profit) של הדר? </b></label>
+                    <label for="Q3" ><b>מהו הרווח הכלכלי (economic profit) של הדר? </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q3" required>
                     <br>
                     <br>
@@ -49,7 +49,7 @@
                         הוא שוקל לפתוח פירמה משלו, שם הוא מצפה להרוויח 200,000 $ בשנה לאחר שיתבסס. כדי לנהל משרד משלו הוא יזדקק למשרד, העולה 50,000 דולר לשנה ולפקיד, העולה 35,000 דולר לשנה.
 
                     </p>
-                    <label for="Q4"><b>מה העלויות המפורשות (explicit cost) של פרד?  </b></label>
+                    <label for="Q4" ><b>מה העלויות המפורשות (explicit cost) של פרד?  </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q4" required>
                     <br>
                     <br>
@@ -71,7 +71,7 @@
                         <br>
                         הוא הרוויח 13,800 דולר בשנה בהשכרת הבניין שלו לפני שהחל את עסקיו.
                         <br>
-
+                    </p>
                     <label for="Q7"><b>מה העלויות המפורשות (explicit cost) של סיד?   </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q7" required>
                     <br>
@@ -86,12 +86,11 @@
                     <br>
                     <label for="Q10"><b>מהו הרווח החשבונאי (accounting profit) של סיד?   </b></label>
                     <input type="number" placeholder="Write your Answer" name="Q10" required>
-
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-info" >
                 </form>
-            </p>
-<p style="text-align:center;">
-    <button type="button" class="btn btn-info" ><a href="/demog" >לדף הבא</a></button>
-</p>
+
 
     </body>
 </html>

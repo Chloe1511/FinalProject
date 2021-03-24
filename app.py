@@ -42,13 +42,7 @@ def code():
         session['code'] = current_id
         query = "SELECT * FROM users WHERE id ='%s'" % current_id
         query_result = interact_db(query, query_type='fetch')
-    agent = request.headers.get('User-Agent')
-    if ('iphone' or 'android' or 'blackberry') in agent.lower():
-        mobile = True
-    if (mobile == True):
-        return render_template('instructions.html', id=current_id, user=query_result)
-    else:
-        return render_template('video1.html')
+    return render_template('instructions.html', id=current_id, user=query_result)
 
 
 @app.route('/instructions')
@@ -68,7 +62,13 @@ def pretest():
 
 @app.route('/video1')
 def video1():
-    return render_template("video1.html")
+    current_id = session['code']
+    query = "SELECT continuous_experiment FROM users WHERE id ='%s'" % current_id
+    query_result = interact_db(query, query_type='fetch')
+   ## for qr in query_result:
+     #   ce = qr.continuous_experiment
+
+    return render_template("video1.html", ce=query_result[0])
 
 
 @app.route('/video2')
@@ -93,7 +93,86 @@ def requestend():
 
 @app.route('/requestPre')
 def requestpre():
-    return render_template("video1.html")
+    current_id = session['code']
+    query = "SELECT continuous_experiment FROM users WHERE id ='%s'" % current_id
+    query_result = interact_db(query, query_type='fetch')
+
+    if 'Q1' in request.args:
+        ans1 = request.args['Q1']
+    if 'Q2' in request.args:
+        ans2 = request.args['Q2']
+    if 'Q3' in request.args:
+        ans3 = request.args['Q3']
+    if 'Q4' in request.args:
+        ans4 = request.args['Q4']
+    if 'Q5' in request.args:
+        ans5 = request.args['Q5']
+
+    query1 = "INSERT INTO pre_test_quiz (id, qnumber, ans) VALUES ('%s', 1, '%s')" % (current_id, ans1)
+    query2 = "INSERT INTO pre_test_quiz (id, qnumber, ans) VALUES ('%s', 2, '%s')" % (current_id, ans2)
+    query3 = "INSERT INTO pre_test_quiz (id, qnumber, ans) VALUES ('%s', 3, '%s')" % (current_id, ans3)
+    query4 = "INSERT INTO pre_test_quiz (id, qnumber, ans) VALUES ('%s', 4, '%s')" % (current_id, ans4)
+    query5 = "INSERT INTO pre_test_quiz (id, qnumber, ans) VALUES ('%s', 5, '%s')" % (current_id, ans5)
+
+    interact_db(query1, query_type='commit')
+    interact_db(query2, query_type='commit')
+    interact_db(query3, query_type='commit')
+    interact_db(query4, query_type='commit')
+    interact_db(query5, query_type='commit')
+
+    return render_template("video1.html", ce=query_result[0])
+
+
+@app.route('/requestAfter')
+def requestafter():
+    current_id = session['code']
+
+    if 'Q1' in request.args:
+        ans1 = request.args['Q1']
+    if 'Q2' in request.args:
+        ans2 = request.args['Q2']
+    if 'Q3' in request.args:
+        ans3 = request.args['Q3']
+    if 'Q4' in request.args:
+        ans4 = request.args['Q4']
+    if 'Q5' in request.args:
+        ans5 = request.args['Q5']
+    if 'Q6' in request.args:
+        ans6 = request.args['Q6']
+    if 'Q7' in request.args:
+        ans7 = request.args['Q7']
+    if 'Q8' in request.args:
+        ans8 = request.args['Q8']
+    if 'Q9' in request.args:
+        ans9 = request.args['Q9']
+    if 'Q10' in request.args:
+        ans10 = request.args['Q10']
+
+
+    query1 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 1, '%s')" % (current_id, ans1)
+    query2 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 2, '%s')" % (current_id, ans2)
+    query3 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 3, '%s')" % (current_id, ans3)
+    query4 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 4, '%s')" % (current_id, ans4)
+    query5 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 5, '%s')" % (current_id, ans5)
+    query6 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 6, '%s')" % (current_id, ans6)
+    query7 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 7, '%s')" % (current_id, ans7)
+    query8 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 8, '%s')" % (current_id, ans8)
+    query9 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 9, '%s')" % (current_id, ans9)
+    query10 = "INSERT INTO knowledge_quiz (id, qnumber, ans) VALUES ('%s', 10, '%s')" % (current_id, ans10)
+
+    interact_db(query1, query_type='commit')
+    interact_db(query2, query_type='commit')
+    interact_db(query3, query_type='commit')
+    interact_db(query4, query_type='commit')
+    interact_db(query5, query_type='commit')
+    interact_db(query6, query_type='commit')
+    interact_db(query7, query_type='commit')
+    interact_db(query8, query_type='commit')
+    interact_db(query9, query_type='commit')
+    interact_db(query10, query_type='commit')
+
+    return render_template("demog.html")
+
 
 
 @app.route('/end')
