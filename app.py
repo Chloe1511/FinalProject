@@ -2,21 +2,45 @@ from datetime import timedelta
 
 from flask import Flask, redirect, render_template, flash, blueprints, jsonify
 from flask import request, session
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
+import psycopg2
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
-db = SQLAlchemy(app)
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
+#app.config[
+ #   'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
+#db = SQLAlchemy(app)
 
-class users(db.Model):
-    ID = db.Column(db.Integer, primary_key=True)
-    PC_Mobile = db.Column(db.Boolean)
-    Continuous_experiment = db.Column(db.Boolean)
+##class users(db.Model):
+  ##  ID = db.Column(db.Integer, primary_key=True)
+    ##PC_Mobile = db.Column(db.Boolean)
+    ##Continuous_experiment = db.Column(db.Boolean)
+
+
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = psycopg2.connect(host='ec2-3-211-37-117.compute-1.amazonaws.com',
+                                  user='qigueenywepswf',
+                                  password='6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3',
+                                  dbname='d5193g7acku5on')
+
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
 
 
 @app.route('/')
@@ -31,11 +55,15 @@ def code():
         current_id = request.args['codeid']
         session['id'] = True
         session['code'] = current_id
+        query = "SELECT * FROM users WHERE id ='%s'" % current_id
+        query_result = interact_db(query, query_type='fetch')
+
         #user = users.query.filter_by(ID=current_id).first()
-        user = users(ID=124, PC_Mobile=True,Continuous_experiment=True)
-        db.session.add(user)
-        db.session.commit()
-    return render_template('instructions.html', id=current_id)
+        #user = users(ID=124, PC_Mobile=True,Continuous_experiment=True)
+        #db.session.add(user)
+        #db.session.commit()
+
+    return render_template('instructions.html', id=current_id, user=query_result)
 
 
 @app.route('/instructions')
