@@ -3,3 +3,4 @@ Flask_SQLAlchemy==2.4.4
 Flask==1.1.2
 gunicorn
 Js2Py~=0.70
+psycopg2>=2.7,<2.8 --no-binary psycopg2
