@@ -9,9 +9,9 @@ import psycopg2
 
 app = Flask(__name__)
 
-app.secret_key = '123'
+#app.secret_key = '123'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
+app.secret_key= 'ldfjsolasfuasdfjsodfusoij4w09r8pswojufsldkfjdf9'
 #app.config[
 #    'SQLALCHEMY_DATABASE_URI'] = 'postgres://qigueenywepswf:6dfe096b778783f1d5932be9516b36a87c14cf8cb007a8dca4546f47060021c3@ec2-3-211-37-117.compute-1.amazonaws.com:5432/d5193g7acku5on'
 #db = SQLAlchemy(app)
