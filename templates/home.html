@@ -26,8 +26,11 @@
             <p style="text-align: right">הכנס בבקשה את קוד הכניסה שלך</p>
 
             <form method="GET" action="/request" >
-                <input name="codeid" >
-                <input type="submit" onclick="mobileCheck()">
+                <input name="codeid">
+                <input type="submit" >
+                {% for message in get_flashed_messages() %}
+                            <p>{{ message }}</p>
+                {% endfor %}
             </form>
         </div>
         </div>

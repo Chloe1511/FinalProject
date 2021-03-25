@@ -3,32 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
     <script src={{ url_for('static', filename='js/js.js') }}></script>
 
     <title>Video</title>
     </head>
 <body>
-    <div class="grid-container">
-        <div class="nameUni">
-            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
-        </div>
+<div class="grid-container">
         <div class="logo">
-            <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo" onload="myFunction2()"><br>
+            <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
         </div>
-    </div>
+        <div class="nameUni">
+            <div class="container-fluid" style="text-align: right">
+                <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
+            </div>
+        </div>
+
+    <div class="container-fluid" style="text-align: right">
 
         <h2 style="text-align: right">סרטון</h2>
     <p>נא צפה בסרטון זה:<br></p>
     <p style="text-align:center;">
         <iframe width="1173" height="504" src="https://www.youtube.com/embed/kQRFfAlj9CE?autoplay=0&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <br>
-        <a href="/afterTest"><input type="button" id="myBtn2" value="לדף הבא"></a>
+        <a href="/afterTest"><input type="button" class="btn btn-info" id="myBtn2" value="לדף הבא"></a>
 
         <!--<button type="button" class="btn btn-info" ><a href="/afterTest" >לדף הבא</a></button>-->
     </p>
-
+    </div>
+</div>
     </body>
 </html>
 

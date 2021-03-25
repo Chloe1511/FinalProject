@@ -11,18 +11,17 @@
     <title>Video</title>
     </head>
 <body>
-    <div class="grid-container">
+<div class="grid-container">
+        <div class="logo">
+            <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
+        </div>
         <div class="nameUni">
-            <div class="container-fluid bgi text center">
+            <div class="container-fluid" style="text-align: right">
                 <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
             </div>
         </div>
-        <div class="logo">
-            <div class="container-fluid bgi text center">
-                <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo" onload="myFunction1()"><br>
-            </div>
-        </div>
-    </div>
+
+    <div class="container-fluid" style="text-align: right">
     <h2 style="text-align: right">סרטון</h2>
     <p style ="text-align: right" >  נא צפה בסרטון זה: </p>
     <p style="text-align:center;">
@@ -31,9 +30,9 @@
         <br>
 
                 {% if ce[0] == True %}
-                    <a href="/video2"><input type="button" id="myBtn" value="לדף הבא"></a>
+                    <a href="/video2"><input type="button" class="btn btn-info" id="myBtn" value="לדף הבא"></a>
                     {% else %}
-                    <a href="/timer"><input type="button" id="myBtn" value="לדף הבא"></a>
+                    <a href="/timer"><input type="button" class="btn btn-info" id="myBtn" value="לדף הבא"></a>
                 {% endif %}
 
 
@@ -42,9 +41,9 @@
             {% else %}
             <a href="/timer"><input type="button" id="myBtn" value="לדף הבא"></a>
         {% endif %}-->
-
-
         </p>
+    </div>
+</div>
 
 </body>
 </html>

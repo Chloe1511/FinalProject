@@ -36,13 +36,18 @@ def hello_world():
 @app.route('/request', methods=['GET', 'POST'])
 def code():
     mobile = False
+    query_result=''
     if 'codeid' in request.args:
         current_id = request.args['codeid']
         session['id'] = True
         session['code'] = current_id
         query = "SELECT * FROM users WHERE id ='%s'" % current_id
         query_result = interact_db(query, query_type='fetch')
-    return render_template('instructions.html', id=current_id, user=query_result)
+
+    if query_result == []:
+        return render_template('instructions.html', id=current_id, user='')
+    else:
+        return render_template('instructions.html', id=current_id, user=query_result[0][1])
 
 
 @app.route('/instructions')
