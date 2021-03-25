@@ -20,16 +20,17 @@
         <div class="logo">
             <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
         </div>
-    </div>
-<div class="container-fluid" style="text-align: right">
-        <h2 style="text-align: right">ברוכים הבאים</h2>
-    <p style="text-align: right">הכנס בבקשה את קוד הכניסה שלך</p>
 
-    <form method="GET" action="/request" >
-        <input name="codeid" >
-        <input type="submit" onclick="mobileCheck()">
-    </form>
-</div>
+        <div class="container-fluid" style="text-align: right">
+                <h2 style="text-align: right">ברוכים הבאים</h2>
+            <p style="text-align: right">הכנס בבקשה את קוד הכניסה שלך</p>
+
+            <form method="GET" action="/request" >
+                <input name="codeid" >
+                <input type="submit" onclick="mobileCheck()">
+            </form>
+        </div>
+        </div>
 
     </body>
 </html>
