@@ -25,13 +25,15 @@
             <div class="logo">
                 <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
             </div>
-        </div>
+            <h3>זמן זה הינו מוקדש להפסקה,<br>
+            נא לא לסגור את הדפדפן בזמן זה.</h3>
+            </div>
+        <p id="demo"> </p>
 
-        <p id="demo"></p>
 
         <script>
         // Set the date we're counting down to
-        var countDownDate = new Date().getTime()+3000 //5 mins
+        var countDownDate = new Date().getTime()+1800 //3 mins--180000
 
         // Update the count down every 1 second
         var x = setInterval(function() {

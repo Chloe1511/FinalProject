@@ -11,28 +11,23 @@
     </head>
 <body>
     <div class="grid-container">
+         <div class="logo">
+            <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo">
+        </div>
         <div class="nameUni">
-            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
+            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1><br>
         </div>
-        <div class="logo">
-            <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
-        </div>
+
     </div>
-<h2 style="text-align: right">שאלון דמוגרפי</h2>
+    <div class="container-fluid" style="text-align: right">
+        <h2 style="text-align: right">אנא ענו על השאלות הבאות</h2>
+        <form method="get" action="/requestend" >
 
-<form method="get" action="/requestend" >
-
-    1. באיזה מכשיר ביצעת את המבחן ?<br>
-    <input type="radio" id="PC" name="device" value="PC" required>
-    <label for="PC">מחשב נייד</label><br>
-    <input type="radio" id="Mobile" name="device" value="Mobile" required>
-    <label for="Mobile">טלפון סלולרי</label><br><br>
-
-	2. מה הגיל שלך?<br>
+	1. מה הגיל שלך?<br>
     <input type="text" id="age" name="age" value="" required>
     <label for="age"></label><br><br>
 
-    3. לאיזה מגדר אתה משתייך? <br>
+    2. לאיזה מגדר אתה משתייך? <br>
     <input type="radio" id="men" name="gender" value="men" required>
     <label for="men">גבר</label><br>
     <input type="radio" id="woman" name="gender" value="woman" required>
@@ -40,21 +35,35 @@
     <input type="radio" id="other" name="gender" value="other" required>
     <label for="other">אחרת</label><br><br>
 
-    4. מה רמת ההשכלה שלך? <br>
-    <input type="text" id="level" name="level" value="" required>
-    <label for="level"></label><br><br>
 
-    5. כמה שעות ביום ממוצע אתה משתמש במחשב (שלא לצורך עבודה)? <br>
+    3. כמה שעות ביום ממוצע אתה משתמש במחשב (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursPC" name="hoursPC" value="" required>
     <label for="hoursPC"></label><br><br>
 
-    6. כמה שעות ביום ממוצע אתה משתמש בטלפון נייד (שלא לצורך עבודה)? <br>
+    4. כמה שעות ביום ממוצע אתה משתמש בטלפון נייד (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursMob" name="hoursMob" value="" required>
     <label for="hoursMob"></label><br><br>
 
-    7.האם אתה בחלל / מרחב סגור או פתוח?<br>
-על סולם של 1 עד 7, דרג את הסביבה שבה אתה נמצא (כאשר 1 מייצג "חלל סגור" ו-7 מייצג "מרחב פתוח")<br>
-    <label for="1">1</label>
+<h3 style="text-align: right">דרג את תשובותיך על סולם של 1 עד 7</h3>
+
+    5. מה רמת הידע הכלכלי/חשבונאי שלך? <br>
+    <label for="1">1 נמוכה</label>
+    <input type="radio" id="1" name="level" value="1" required>&nbsp;
+    <label for="2">2</label>
+    <input type="radio" id="2" name="level" value="2" required>&nbsp;
+    <label for="3">3</label>
+    <input type="radio" id="3" name="level" value="3" required>&nbsp;
+    <label for="4">4</label>
+    <input type="radio" id="4" name="level" value="4" required>&nbsp;
+    <label for="5">5</label>
+    <input type="radio" id="5" name="level" value="5" required>&nbsp;
+    <label for="6">6</label>
+    <input type="radio" id="6" name="level" value="6" required>&nbsp;
+    <label for="7">7 גבוהה</label>
+    <input type="radio" id="7" name="level" value="7" required>&nbsp;<br><br>
+
+    6.האם אתה בחלל / מרחב סגור או פתוח?<br>
+    <label for="1">1 סגור</label>
     <input type="radio" id="1" name="open" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="open" value="2" required>&nbsp;
@@ -66,13 +75,12 @@
     <input type="radio" id="5" name="open" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="open" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 פתוח</label>
     <input type="radio" id="7" name="open" value="7" required>&nbsp;<br><br>
 
 
-    8.האם אתה בחלל / מרחב פרטי או ציבורי?<br>
-על סולם של 1 עד 7, דרג את הסביבה שבה אתה נמצא (כאשר 1 מייצג "חלל פרטי" ו-7 מייצג "מרחב ציבורי")<br>
-    <label for="1">1</label>
+    7.האם אתה בחלל / מרחב פרטי או ציבורי?<br>
+    <label for="1">1 פרטי</label>
     <input type="radio" id="1" name="privace" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="privace" value="2" required>&nbsp;
@@ -84,12 +92,11 @@
     <input type="radio" id="5" name="privace" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="privace" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 ציבורי</label>
     <input type="radio" id="7" name="privace" value="7" required>&nbsp;<br><br>
 
-9.האם אתה בחלל / מרחב גדול או קטן?<br>
-על סולם מ-1 עד 7, דרג את גודל הסביבה שבה אתה נמצא (כאשר 1 מייצג "קטן ביותר" ו-7 מייצג "גדול ביותר").<br>
-    <label for="1">1</label>
+8.האם אתה בחלל / מרחב גדול או קטן?<br>
+    <label for="1">1 קטן</label>
     <input type="radio" id="1" name="big" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="big" value="2" required>&nbsp;
@@ -101,11 +108,11 @@
     <input type="radio" id="5" name="big" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="big" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 גדול</label>
     <input type="radio" id="7" name="big" value="7" required>&nbsp;<br><br>
 
-    10.על סולם מ-1 עד 7, דרג את מידת הרעש שסביבך (כאשר 1 מייצג "לא רועש בכלל" ו-7 מייצג "רועש ביותר").<br>
-        <label for="1">1</label>
+9.האם אתה בחלל / מרחב רועש?<br>
+        <label for="1">1 לא רועש</label>
     <input type="radio" id="1" name="noisy" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="noisy" value="2" required>&nbsp;
@@ -117,11 +124,11 @@
     <input type="radio" id="5" name="noisy" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="noisy" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 רועש ביותר</label>
     <input type="radio" id="7" name="noisy" value="7" required>&nbsp;<br><br>
 
-11.על סולם מ-1 עד 7, דרג את מידת החושך שסביבך (כאשר 1 מייצג "לא חשוך בכלל" ו-7 מייצג "חשוך ביותר").<br>
-        <label for="1">1</label>
+10.האם אתה בחלל / מרחב חשוך?<br>
+        <label for="1">1 לא חשוך</label>
     <input type="radio" id="1" name="dark" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="dark" value="2" required>&nbsp;
@@ -133,11 +140,11 @@
     <input type="radio" id="5" name="dark" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="dark" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 חשוך ביותר</label>
     <input type="radio" id="7" name="dark" value="7" required>&nbsp;<br><br>
 
-12.על סולם מ-1 עד 7, דרג את מידת צפיפות האנשים שסביבך (כאשר 1 מייצג "לא צפוף בכלל" ו-7 מייצג "צפוף ביותר").<br>
-        <label for="1">1</label>
+11.האם אתה בחלל / מרחב צפוף?<br>
+        <label for="1">1 לא צפוף</label>
     <input type="radio" id="1" name="dense" value="1" required>&nbsp;
     <label for="2">2</label>
     <input type="radio" id="2" name="dense" value="2" required>&nbsp;
@@ -149,15 +156,15 @@
     <input type="radio" id="5" name="dense" value="5" required>&nbsp;
     <label for="6">6</label>
     <input type="radio" id="6" name="dense" value="6" required>&nbsp;
-    <label for="7">7</label>
+    <label for="7">7 צפוף ביותר</label>
     <input type="radio" id="7" name="dense" value="7" required>&nbsp;<br><br>
 
-    <p style="text-align:center;">
+    <input type="submit" class="btn btn-info" >
+    <!--<p style="text-align:center;">
         <button type="submit" onclick="/end">לדף הבא</button>
-    </p>
-
-</form>
-
+    </p>-->
+        </form>
+    </div>
 
 
 
