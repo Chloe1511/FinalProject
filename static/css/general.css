@@ -6,7 +6,8 @@
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-gap: 40px;
-    margin: 25px;
+    margin: 50px;
+    padding: 50px;
     /* flex-direction: column; */
     flex-wrap: wrap;
 }
@@ -27,6 +28,18 @@
     display: flex;
     align-items: flex-start;
 }
+
+
+#formid{
+    grid-column: 1 / span 3;
+    grid-row: 2 / span 2;
+    margin: 25px;
+    padding: 25px;
+}
+
+
 body{
 font-family: Arial;
+        font-size: 20px;
+
 }

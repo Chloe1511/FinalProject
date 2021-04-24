@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<!--<html lang="he" dir="rtl">-->
+<html dir="rtl" lang="ar">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,158 +16,157 @@
             <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo">
         </div>
         <div class="nameUni">
-            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1><br>
+            <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
         </div>
 
     </div>
-    <div class="container-fluid" style="text-align: right">
-        <h2 style="text-align: right">אנא ענו על השאלות הבאות</h2>
-        <form method="get" action="/requestend" >
+    <div class="container-fluid">
 
+        <form method="get" action="/requestend" id="formid">
+            <h2 style="text-align: right">אנא עני על השאלות הבאות</h2>
 	1. מה הגיל שלך?<br>
     <input type="text" id="age" name="age" value="" required>
     <label for="age"></label><br><br>
 
-    2. לאיזה מגדר אתה משתייך? <br>
+    2. לאיזה מגדר את משתייכת? <br>
     <input type="radio" id="men" name="gender" value="men" required>
     <label for="men">גבר</label><br>
     <input type="radio" id="woman" name="gender" value="woman" required>
     <label for="woman">אישה</label><br>
     <input type="radio" id="other" name="gender" value="other" required>
-    <label for="other">אחרת</label><br><br>
+    <label for="other">אחר</label><br><br>
 
 
-    3. כמה שעות ביום ממוצע אתה משתמש במחשב (שלא לצורך עבודה)? <br>
+    3. כמה שעות ביום ממוצע את משתמשת במחשב (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursPC" name="hoursPC" value="" required>
     <label for="hoursPC"></label><br><br>
 
-    4. כמה שעות ביום ממוצע אתה משתמש בטלפון נייד (שלא לצורך עבודה)? <br>
+    4. כמה שעות ביום ממוצע את משתמשת בטלפון נייד (שלא לצורך עבודה)? <br>
     <input type="text" id="hoursMob" name="hoursMob" value="" required>
     <label for="hoursMob"></label><br><br>
 
-<h3 style="text-align: right">דרג את תשובותיך על סולם של 1 עד 7</h3>
+<h3 style="text-align: right">דרגי את תשובותיך על סולם של 1 עד 7</h3>
 
     5. מה רמת הידע הכלכלי/חשבונאי שלך? <br>
-    <label for="1">1 נמוכה</label>
-    <input type="radio" id="1" name="level" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="level" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="level" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="level" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="level" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="level" value="6" required>&nbsp;
-    <label for="7">7 גבוהה</label>
-    <input type="radio" id="7" name="level" value="7" required>&nbsp;<br><br>
 
-    6.האם אתה בחלל / מרחב סגור או פתוח?<br>
-    <label for="1">1 סגור</label>
-    <input type="radio" id="1" name="open" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="open" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="open" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="open" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="open" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="open" value="6" required>&nbsp;
-    <label for="7">7 פתוח</label>
-    <input type="radio" id="7" name="open" value="7" required>&nbsp;<br><br>
+            <input type="radio" id="1" name="level" value="1" required>&nbsp;
+            <label for="1">1 נמוכה</label>
+            <input type="radio" id="2" name="level" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="level" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="level" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="level" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="level" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="level" value="7" required>&nbsp;
+            <label for="7">7 גבוהה</label><br><br>
+
+    6.האם את בחלל / מרחב סגור או פתוח?<br>
+            <input type="radio" id="1" name="open" value="1" required>&nbsp;
+            <label for="1">1 סגור</label>
+            <input type="radio" id="2" name="open" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="open" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="open" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="open" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="open" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="open" value="7" required>&nbsp;<br><br>
+            <label for="7">7 פתוח</label>
 
 
-    7.האם אתה בחלל / מרחב פרטי או ציבורי?<br>
-    <label for="1">1 פרטי</label>
-    <input type="radio" id="1" name="privace" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="privace" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="privace" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="privace" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="privace" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="privace" value="6" required>&nbsp;
-    <label for="7">7 ציבורי</label>
-    <input type="radio" id="7" name="privace" value="7" required>&nbsp;<br><br>
+    7.האם את בחלל / מרחב פרטי או ציבורי?<br>
+            <input type="radio" id="1" name="privace" value="1" required>&nbsp;
+            <label for="1">1 פרטי</label>
+            <input type="radio" id="2" name="privace" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="privace" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="privace" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="privace" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="privace" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="privace" value="7" required>&nbsp;
+            <label for="7">7 ציבורי</label><br><br>
 
-8.האם אתה בחלל / מרחב גדול או קטן?<br>
-    <label for="1">1 קטן</label>
-    <input type="radio" id="1" name="big" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="big" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="big" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="big" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="big" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="big" value="6" required>&nbsp;
-    <label for="7">7 גדול</label>
-    <input type="radio" id="7" name="big" value="7" required>&nbsp;<br><br>
+8.האם את בחלל / מרחב גדול או קטן?<br>
+            <input type="radio" id="1" name="big" value="1" required>&nbsp;
+            <label for="1">1 קטן</label>
+            <input type="radio" id="2" name="big" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="big" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="big" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="big" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="big" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="big" value="7" required>&nbsp;
+            <label for="7">7 גדול</label><br><br>
 
-9.האם אתה בחלל / מרחב רועש?<br>
-        <label for="1">1 לא רועש</label>
-    <input type="radio" id="1" name="noisy" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="noisy" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="noisy" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="noisy" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="noisy" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="noisy" value="6" required>&nbsp;
-    <label for="7">7 רועש ביותר</label>
-    <input type="radio" id="7" name="noisy" value="7" required>&nbsp;<br><br>
+9.האם את בחלל / מרחב רועש?<br>
+            <input type="radio" id="1" name="noisy" value="1" required>&nbsp;
+             <label for="1">1 לא רועש</label>
+            <input type="radio" id="2" name="noisy" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="noisy" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="noisy" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="noisy" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="noisy" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="noisy" value="7" required>&nbsp;
+            <label for="7">7 רועש ביותר</label><br><br>
 
-10.האם אתה בחלל / מרחב חשוך?<br>
-        <label for="1">1 לא חשוך</label>
-    <input type="radio" id="1" name="dark" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="dark" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="dark" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="dark" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="dark" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="dark" value="6" required>&nbsp;
-    <label for="7">7 חשוך ביותר</label>
-    <input type="radio" id="7" name="dark" value="7" required>&nbsp;<br><br>
+10.האם את בחלל / מרחב חשוך?<br>
+            <input type="radio" id="1" name="dark" value="1" required>&nbsp;
+            <label for="1">1 לא חשוך</label>
+            <input type="radio" id="2" name="dark" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="dark" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="dark" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="dark" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="dark" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="dark" value="7" required>&nbsp;
+            <label for="7">7 חשוך ביותר</label><br><br>
 
-11.האם אתה בחלל / מרחב צפוף?<br>
-        <label for="1">1 לא צפוף</label>
-    <input type="radio" id="1" name="dense" value="1" required>&nbsp;
-    <label for="2">2</label>
-    <input type="radio" id="2" name="dense" value="2" required>&nbsp;
-    <label for="3">3</label>
-    <input type="radio" id="3" name="dense" value="3" required>&nbsp;
-    <label for="4">4</label>
-    <input type="radio" id="4" name="dense" value="4" required>&nbsp;
-    <label for="5">5</label>
-    <input type="radio" id="5" name="dense" value="5" required>&nbsp;
-    <label for="6">6</label>
-    <input type="radio" id="6" name="dense" value="6" required>&nbsp;
-    <label for="7">7 צפוף ביותר</label>
-    <input type="radio" id="7" name="dense" value="7" required>&nbsp;<br><br>
+11.האם את בחלל / מרחב צפוף?<br>
+            <input type="radio" id="1" name="dense" value="1" required>&nbsp;
+            <label for="1">1 לא צפוף</label>
+            <input type="radio" id="2" name="dense" value="2" required>&nbsp;
+            <label for="2">2</label>
+            <input type="radio" id="3" name="dense" value="3" required>&nbsp;
+            <label for="3">3</label>
+            <input type="radio" id="4" name="dense" value="4" required>&nbsp;
+            <label for="4">4</label>
+            <input type="radio" id="5" name="dense" value="5" required>&nbsp;
+            <label for="5">5</label>
+            <input type="radio" id="6" name="dense" value="6" required>&nbsp;
+            <label for="6">6</label>
+            <input type="radio" id="7" name="dense" value="7" required>&nbsp;
+            <label for="7">7 צפוף ביותר</label><br><br>
 
-    <input type="submit" class="btn btn-info" >
-    <!--<p style="text-align:center;">
+    <!-- <input type="submit" class="btn btn-info" >-->
+   <p style="text-align:center;">
         <button type="submit" onclick="/end">לדף הבא</button>
-    </p>-->
+    </p>
         </form>
     </div>
-
-
 
     </body>
 </html>
