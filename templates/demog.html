@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
     <script src={{ url_for('static', filename='js/js.js') }}></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <title>Demographie</title>
     </head>
@@ -18,12 +21,13 @@
         <div class="nameUni">
             <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
         </div>
-
     </div>
-    <div class="container-fluid">
+
+    <div class="container-fluid" style="text-align: right">
 
         <form method="get" action="/requestend" id="formid">
             <h2 style="text-align: right">אנא עני על השאלות הבאות</h2>
+            <br>
 	1. מה הגיל שלך?<br>
     <input type="text" id="age" name="age" value="" required>
     <label for="age"></label><br><br>
@@ -161,10 +165,8 @@
             <input type="radio" id="7" name="dense" value="7" required>&nbsp;
             <label for="7">7 צפוף ביותר</label><br><br>
 
-    <!-- <input type="submit" class="btn btn-info" >-->
-   <p style="text-align:center;">
-        <button type="submit" onclick="/end">לדף הבא</button>
-    </p>
+            <input type="submit" class="btn btn-info" value="לדף הבא" >
+
         </form>
     </div>
 

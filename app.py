@@ -3,7 +3,7 @@ from flask import request, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_sqlalchemy import *
 import psycopg2
-
+from sqlalchemy.sql.functions import now
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -44,6 +44,9 @@ def code():
         query = "SELECT * FROM users WHERE id ='%s'" % current_id
         query_result = interact_db(query, query_type='fetch')
 
+    current_id2 = session['code']
+    query2 = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 1, current_timestamp )" % (current_id2)
+    interact_db(query2, query_type='commit')
     if query_result == []:
         return render_template('instructions.html', id=current_id, user='')
     else:
@@ -63,6 +66,23 @@ def consent():
 @app.route('/PreTest')
 def pretest():
     return render_template("PreTest.html")
+
+
+@app.route('/requestCheck')
+def requestCheck():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 3, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    check = ''
+    if 'check' in request.args:
+        check = request.args['check']
+    if check == 'yes':
+        current_id = session['code']
+        query = "SELECT continuous_experiment FROM users WHERE id ='%s'" % current_id
+        query_result = interact_db(query, query_type='fetch')
+        return render_template("video1.html", ce=query_result[0])
+    else:
+        return render_template("home.html")
 
 
 @app.route('/video1')
@@ -94,7 +114,8 @@ def demog():
 @app.route('/requestend')
 def requestend():
     current_id = session['code']
-
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 8, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
 
     if 'age' in request.args:
         ans2 = request.args['age']
@@ -181,6 +202,8 @@ def requestpre():
 @app.route('/requestAfter')
 def requestafter():
     current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 7, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
 
     if 'Q1' in request.args:
         ans1 = request.args['Q1']
@@ -239,6 +262,42 @@ def end():
 def timer():
     return render_template("Timer.html")
 
+
+
+@app.route('/timestampIns')
+def timestampIns():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 2, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    return render_template("consent.html")
+
+@app.route('/timestampVideo12')
+def timestampVideo12():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 4, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    return render_template("video2.html")
+
+@app.route('/timestampVideo1Timer')
+def timestampVideo1Timer():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 4, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    return render_template("Timer.html")
+
+@app.route('/timestampTimer')
+def timestampTimer():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 5, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    return render_template("video2.html")
+
+@app.route('/timestampVideo2')
+def timestampVideo2():
+    current_id = session['code']
+    query = "INSERT INTO timestamp_button (id, bnumber, times) VALUES ('%s', 6, current_timestamp )" % (current_id)
+    interact_db(query, query_type='commit')
+    return render_template("afterTest.html")
 
 if __name__ == '__main__':
     app.run()

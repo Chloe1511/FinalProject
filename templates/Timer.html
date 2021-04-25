@@ -1,11 +1,14 @@
 <!doctype html>
 <html dir="rtl" lang="ar">
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
-    <script src={{ url_for('static', filename='js/js.js') }}></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href={{ url_for('static', filename= '/css/general.css') }}>
+        <script src={{ url_for('static', filename='js/js.js') }}></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <title>Video</title>
     </head>
@@ -19,21 +22,38 @@
     </head>
     <body>
         <div class="grid-container">
+            <div class="logo">
+                <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo" onload="buttonHidd()"><br>
+            </div>
             <div class="nameUni">
                 <h1>אוניברסיטת בן-גוריון בנגב - המחלקה להנדסת תעשייה וניהול</h1>
             </div>
-            <div class="logo">
-                <img id="logoImg" src="{{url_for('static', filename='images/logobengurion.png') }}" alt= "logo"><br>
+            <div class="container-fluid" style="text-align: right">
+                <h3>זמן זה הינו מוקדש להפסקה,<br>
+                    נא לא לסגור את הדפדפן בזמן זה.
+                </h3>
+                <br>
             </div>
-            <h3>זמן זה הינו מוקדש להפסקה,<br>
-            נא לא לסגור את הדפדפן בזמן זה.</h3>
             </div>
         <p id="demo"> </p>
+        <br>
+        <div class="container-fluid">
+      <p style="text-align:center;">
+        <a href="/timestampTimer" ><input type="button" class="btn btn-info" id="togglee" value="לדף הבא" ></a>
+      </p>
+        </div>
+
+
+
 
 
         <script>
+
+            function buttonHidd(){
+                document.getElementById('togglee').style.visibility = 'hidden';
+            }
         // Set the date we're counting down to
-        var countDownDate = new Date().getTime()+1800 //3 mins--180000
+        var countDownDate = new Date().getTime()+3000 //3 mins--180000
 
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -54,7 +74,8 @@
           // If the count down is over, go to next page
           if (distance <= 0) {
             clearInterval(x);
-            window.location.href = '/video2';
+           <!-- window.location.href = '/video2';-->
+              document.getElementById('togglee').style.visibility = 'visible';
           }
         }, 1000);
         </script>
