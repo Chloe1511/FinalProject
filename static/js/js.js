@@ -40,7 +40,7 @@ function myFunction2() {
      setTimeout(function(){
 
        document.getElementById("myBtn2").disabled = false;
-     }, 10000); //390000
+     }, 390000); //390000
 }
 
 function myFunction1() {
@@ -48,5 +48,5 @@ function myFunction1() {
      setTimeout(function(){
 
        document.getElementById("myBtn").disabled = false;
-     }, 10000); //310000
+     }, 310000); //310000
 }
